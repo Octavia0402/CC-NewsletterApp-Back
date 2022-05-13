@@ -16,6 +16,19 @@ router.get("/", (req, res) => {
     })
 });
 
+router.get("/allMails", (req, res) => {
+    connection.query("SELECT subscriberMail FROM subscribers", (err, results) => {
+        if(err) {
+            console.log(err);
+            return res.send(err);
+        }
+
+        return res.json({
+            allMails: results,
+        })
+    })
+});
+
 router.post("/", (req, res) => {
     console.log(req.body);
     const {
