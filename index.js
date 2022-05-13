@@ -1,8 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require("body-parser");
+
+const subscribersRouter = require('./router/subscribersRouter');
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/subscribers", subscribersRouter);
 
 const port = process.env.PORT || 8080;
 
