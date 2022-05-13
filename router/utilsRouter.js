@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {detectLanguage, translateText} = require('../utils/translateFunctions');
 const { LANGUAGE_ISO_CODE } = require('../utils/dictionaries');
-// const {sendMail} = require('../utils/mailFunctions');
+const {sendMail} = require('../utils/mailFunctions');
 
 router.get("/detect", async (req, res) => {
     const {text} = req.body;
@@ -35,5 +35,14 @@ router.get("/translate", async (req, res) => {
 
 });
 
+router.post("/send", (req, res) => {
+    const {senderName, senderMail, receiverMail, messageContent} = req.body;
+    if(!senderName || !senderMail || !receiverMail || !messageContent) {
+        return res.status(400).send("Missing Parametres");
+    }
+
+    sendMail(receiverMail, senderMail, messageContent, `${senderName} has sent you a message`);
+    res.send(200);
+})
 
 module.exports = router;
