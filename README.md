@@ -6,6 +6,9 @@ Pentru realizarea proiectului, am ales sa creez o aplicatie de Newsletter, deoar
 - backend: https://github.com/Octavia0402/CC-NewsletterApp-Back.git
 - frontend: https://github.com/Octavia0402/CC-NewsletterApp-Front.git
 
+Publicarea aplicatiei a fost realizata prin Heroku:
+https://radiant-lake-37722.herokuapp.com/
+
 De asemenea, prezentarea proiectului poate fi gasita pe urmatorul link:
 https://youtu.be/8AJl-nYqRGM
 
